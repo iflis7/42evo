@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 //Ex00::
 int main()
 {

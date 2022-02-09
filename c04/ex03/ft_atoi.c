@@ -6,49 +6,32 @@
 /*   By: hsaadi <marvin@42quebec.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 18:28:54 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/01/27 18:30:45 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/02/07 16:55:08 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 
-int ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
-	int result;
-	int counter;
-	int minus;
+	int	result;
+	int	count;
+	int	minus;
 
-	minus = 0;
+	minus = 1;
 	result = 0;
-	counter = 0;
-	while (str[counter] == ' ' || str[counter] == '-' || str[counter] == '+' || str[counter] == '\f' || str[counter] == '\n' || str[counter] == '\r' || str[counter] == '\t' || str[counter] == '\v')
+	count = 0;
+	while ((str[count] == 32) || (str[count] >= 9 && str[count] <= 13))
+		count++;
+	while (str[count] == '-' || str[count] == '+')
 	{
-		if (str[counter] == '-')
-		{
-			minus++;
-		}
-		counter++;
+		if (str[count] == '-')
+			minus = minus * -1;
+		count++;
 	}
-	if (minus % 2 == 0)
-		minus = 1;
-	else
+	while (str[count] - '0' >= 0 && str[count] - '0' <= 9)
 	{
-		minus = -1;
-	}
-	while (str[counter] != '\0')
-	{
-		if (!(str[counter] - '0' >= 0 && str[counter] - '0' <= 9))
-		{
-			return (result * minus);
-		}
-		result = (str[counter] - '0') + (result * 10);
-		counter++;
+		result = (str[count] - '0') + (result * 10);
+		count++;
 	}
 	return (result * minus);
-}
-
-int main()
-{
-	char str[] = " ---+--+1234a";
-
-	printf("%d", ft_atoi(str));
 }

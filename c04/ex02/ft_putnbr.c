@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsaadi <marvin@42quebec.com>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/07 16:59:35 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/02/07 17:00:27 by hsaadi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include <unistd.h>
 
 void	ft_putchar(char c)
@@ -5,42 +16,26 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	ft_nbrlen(int nbr)
-{
-	int length;
-
-	length = 1;
-	while (nbr / 10 != 0)
-	{
-		nbr /=  10;
-		length *= 10;
-	}
-	return (length);
-}
-
 void	ft_putnbr(int nb)
 {
-	int length;
+	long	remp;
 
-	length = ft_nbrlen(nb);
-	if (nb < 0)
+	remp = nb;
+	if (remp >= 0 && remp < 10)
+		ft_putchar(remp + '0');
+	else if (remp < 0)
 	{
-		if (nb == -2147483648)
+		if (nb <= -2147483648)
 			write(1, "-2147483648", 11);
 		else
-		{	
+		{
 			ft_putchar('-');
-			nb = nb * -1;
-			ft_putnbr(nb);
+			ft_putnbr(remp * (-1));
 		}
 	}
 	else
-	{	
-		while (length != 0)
-		{
-			ft_putchar(nb / length + 48);
-			nb %= length;
-			length /= 10; 
-		}
+	{
+		ft_putnbr(remp / 10);
+		ft_putnbr(remp % 10);
 	}
 }
