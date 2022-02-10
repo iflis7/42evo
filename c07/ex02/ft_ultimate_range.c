@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:58:01 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/02/09 12:26:17 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/02/09 19:42:30 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,15 @@ int	ft_ultimate_range(int **range, int min, int max)
 		*range = NULL;
 		return (0);
 	}
-	*range = (int *)malloc(sizeof(*range) * (max - min));
-	if (*range == NULL)
-		return (-1);
+	*range = malloc(sizeof(*range) * (max - min));
 	while (min < max)
 	{
 		(*range)[count] = min;
 		count++;
 		min++;
 	}
-	int i = 0;
-	while (i < (max - min))
-		{
-			
-		}
+	if (*range == NULL)
+		return (-1);
 	return (count);
 }
 
-int main()
-{
-	int min = 10;
-	int max = 99;
-	int *range[] = {};
-
-	int target = ft_ultimate_range(range, min, max);
-
-	printf("%d\n", target);
-
-	return 0;
-}
