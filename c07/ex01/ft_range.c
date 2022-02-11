@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:45:25 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/02/09 19:40:26 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/02/10 08:23:42 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int	*ft_range(int min, int max)
 	count = 0;
 	if (min >= max)
 		return (NULL);
-	tab = (int *)malloc(sizeof(int) * (max - min));
+	tab = malloc(sizeof(int) * (max - min));
 	if (tab == NULL)
 		return (NULL);
 	while (min < max)
 	{
-		tab[count] += min;
+		tab[count] = min;
 		count++;
 		min++;
 	}

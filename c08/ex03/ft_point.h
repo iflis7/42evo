@@ -6,16 +6,16 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 18:19:23 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/02/09 08:41:53 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/02/09 21:36:55 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_POINT_H
 # define FT_POINT_H
 
-typedef struct	s_point
+typedef struct s_point
 {
-	int x;
-	int y;
-}				t_point;
+	int	x;
+	int	y;
+}		t_point;
 #endif

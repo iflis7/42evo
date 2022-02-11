@@ -1,3 +1,4 @@
+
 // Ex00::
 int	main(void)
 {
@@ -49,5 +50,30 @@ int	main(void)
 	char *strs[4] = {"one", "two", "three", "four"};
 	char sep[] = " -*- ";
 	printf("%s", ft_strjoin(size, strs, sep));
+}
+
+// Ex04::
+int main()
+{
+  char base_from[] = {"0123456789"};
+  char base_to[] = {"0123456789abcdef"};
+  char nbr[] = {"108"};
+  printf("%s", ft_convert_base(nbr, base_from, base_to));
+}
+
+// Ex05::
+int main()
+{
+    int     i;
+    char **tab;
+    char str[] = {"12 1000000000, 4 100 5 1000, 60-7"};
+    char charset[] = {", "};
+    i = 0;
+    tab = ft_split(str, charset);
+    while(tab[i] != 0)
+    {
+        printf("%s\n", tab[i]);
+        i++;
+    }
 }
 

@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:49:54 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/02/09 19:50:55 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/02/10 10:01:08 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,34 +36,32 @@ int	len_num(int nbr, char *base_to)
 
 int	check_base(char *base)
 {
-	int	i;
-	int	j;
+	int	count;
+	int	index;
 
-	i = 0;
+	count = 0;
 	if (ft_strlen(base) <= 1)
 		return (0);
-	while (base[i])
+	while (base[count])
 	{
-		j = i + 1;
-		while (base[j])
+		index = count + 1;
+		while (base[index])
 		{
-			if (base[i] == base[j])
+			if (base[count] == base[index])
 				return (0);
-			j++;
+			index++;
 		}
-		if (ft_isspace(base,
-				i) == 1 || base[i] == '+' || base[i] == '-' || !(base[i] >= 32 && base[i] <= 126))
+		if (ft_isspace(base, count) == 1 || base[count] == '+')
 			return (0);
-		i++;
+		if (base[count] == '-' || !(base[count] >= 32 && base[count] <= 126))
+			return (0);
+		count++;
 	}
 	return (1);
 }
 
 void	ft_putnbr_base(int len, int nbr, char *str, char *base)
 {
-	int	i;
-
-	i = 0;
 	if (nbr < 0)
 	{
 		nbr = nbr * -1;

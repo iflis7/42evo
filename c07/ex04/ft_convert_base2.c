@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:50:11 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/02/09 19:58:58 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/02/10 10:00:41 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,48 +28,48 @@ int	ft_strlen(char *str)
 
 int	ft_isspace(char *str, int count)
 {
-	if (str[count] == 32 || (str[count] >= '9' && str[count] == '13'))
+	if (str[count] == 32 || (str[count] >= 9 && str[count] <= 13))
 		return (1);
 	return (0);
 }
 
 int	ft_isbase(char c, char *base)
 {
-	int	j;
+	int	index;
 
-	j = 0;
-	while (base[j])
+	index = 0;
+	while (base[index])
 	{
-		if (base[j] == c)
-			return (j);
-		j++;
+		if (base[index] == c)
+			return (index);
+		index++;
 	}
 	return (-1);
 }
 
 int	ft_atoi_base(char *str, char *base)
 {
-	int	i;
+	int	count;
 	int	sign;
 	int	res;
 
-	i = 0;
+	count = 0;
 	sign = 1;
 	res = 0;
 	if (check_base(base) == 0)
 		return (0);
-	while (ft_isspace(str, i) == 1)
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while (ft_isspace(str, count) == 1)
+		count++;
+	while (str[count] == '-' || str[count] == '+')
 	{
-		if (str[i] == '-')
+		if (str[count] == '-')
 			sign = sign * -1;
-		i++;
+		count++;
 	}
-	while (ft_isbase(str[i], base) >= 0)
+	while (ft_isbase(str[count], base) >= 0)
 	{
-		res = res * ft_strlen(base) + ft_isbase(str[i], base);
-		i++;
+		res = res * ft_strlen(base) + ft_isbase(str[count], base);
+		count++;
 	}
 	return (res * sign);
 }

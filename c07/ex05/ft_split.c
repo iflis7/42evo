@@ -6,10 +6,9 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:52:13 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/02/09 19:52:14 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/02/10 12:25:54 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -69,26 +68,25 @@ int	ft_count_word(char *str, char *charset)
 
 char	**ft_tab(char *str, char *charset, char **tab, int i)
 {
-	int	count;
+	int	c;
 	int	index;
 
-	count = 0;
+	c = 0;
 	index = 0;
 	while (str[i])
 	{
 		if (ft_is_charset(str[i], charset) && (!(ft_is_charset(str[i + 1],
 						charset))) && index > 0)
 		{
-			count++;
+			c++;
 			index = 0;
 		}
 		if (!(ft_is_charset(str[i], charset)))
 		{
 			if (index == 0)
-				tab[count] = malloc(sizeof(char) * ft_size_w(str, i, charset)
-						+ 1);
-			tab[count][index] = str[i];
-			tab[count][index + 1] = 0;
+				tab[c] = malloc(sizeof(char) * ft_size_w(str, i, charset) + 1);
+			tab[c][index] = str[i];
+			tab[c][index + 1] = 0;
 			index++;
 		}
 		i++;
