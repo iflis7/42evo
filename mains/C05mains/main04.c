@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main04.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loadjou <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 11:11:31 by loadjou           #+#    #+#             */
-/*   Updated: 2022/02/27 16:36:48 by loadjou          ###   ########.fr       */
+/*   Created: 2022/03/09 19:06:17 by loadjou           #+#    #+#             */
+/*   Updated: 2022/03/09 19:08:00 by loadjou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
+#include <stdio.h>
 
-int	main(void)
+int ft_fibonacci(int index);
+int	main()
 {
-	rush(10, 1);
-	return (0);
+	printf("%d\n", ft_fibonacci(2));
+	printf("%d\n", ft_fibonacci(5));
+	printf("%d\n", ft_fibonacci(0));
+	printf("%d\n", ft_fibonacci(10));
+
 }

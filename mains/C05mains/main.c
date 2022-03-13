@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: loadjou <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 11:11:31 by loadjou           #+#    #+#             */
-/*   Updated: 2022/02/27 16:36:48 by loadjou          ###   ########.fr       */
+/*   Created: 2022/03/09 16:08:43 by loadjou           #+#    #+#             */
+/*   Updated: 2022/03/09 16:43:04 by loadjou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
-void	rush(int x, int y);
+int ft_iterative_factorial(int nb);
 
-int	main(void)
+int	main()
 {
-	rush(10, 1);
-	return (0);
+	printf("%d", ft_iterative_factorial(3));
 }

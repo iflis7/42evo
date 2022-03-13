@@ -6,7 +6,7 @@
 /*   By: rajacque <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 15:39:51 by rajacque          #+#    #+#             */
-/*   Updated: 2022/02/27 12:49:03 by rajacque         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:36:15 by loadjou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -34,6 +34,7 @@ void	rush(int x, int y)
 
 	if (x < 1 || y < 1)
 	{
+		return ;
 		write(1, "Erreur! Votre X ou votre Y est < 1.\n", 50);
 	}
 	b = 1;

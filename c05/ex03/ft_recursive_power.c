@@ -15,7 +15,7 @@ int	ft_recursive_power(int nb, int power)
 	int	n;
 
 	n = nb;
-	if (n > n * nb)
+	if (n > n * nb) // <-- why this ?
 		return (0);
 	else if (power > 1)
 		return (n * ft_recursive_power(n, power -1));
