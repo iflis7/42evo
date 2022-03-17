@@ -5,63 +5,80 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: loadjou <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 12:02:14 by loadjou           #+#    #+#             */
-/*   Updated: 2022/02/24 12:13:28 by loadjou          ###   ########.fr       */
+/*   Created: 2022/03/17 17:05:57 by loadjou           #+#    #+#             */
+/*   Updated: 2022/03/17 17:06:22 by loadjou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdbool.h>
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_n(int tab[], int n)
+void	ft_write_combo(int n, int holders[])
 {
-	int	i;
-	int	y;
-	
-	i = 0;
-	y = 1;
-	while (i < n-1)
+	int		index;
+	bool	last;
+
+	index = 0;
+	while (index < n)
 	{
-		if ((tab[i] >= tab[i+1]))
-		{
-			y = 0;
-		}
-		i++;
+		ft_putchar(48 + holders[index]);
+		index++;
 	}
-	if (y == 1)
+	index = n - 1;
+	last = true;
+	while (index >= 0)
 	{
-		i = 0;
+		if (holders[index] != 9 - (n - 1 - index))
+		{
+			last = false;
+			break ;
+		}
+		index--;
+	}
+	if (!last)
+	{
+		ft_putchar(',');
+		ft_putchar(' ');
+	}
 }
 
-void	ft_while(int nb[], int k, int n)
+void	ft_print_combn_recursive(int n, int curr, int holders[], int st_index)
 {
-	if (k == n - 1)
+	int	index;
+	int	max;
+
+	if (curr == n)
 	{
-		nb[k] = '0';
-		while (nb[k] <= '9')
-		{
-			ft_n(nb, n);
-			nb[k]++;
-		}
+		ft_write_combo(n, holders);
 	}
 	else
 	{
-		nb[k] = '0';
-		while (nb[k] <= '9')
+		max = 10 - (n - curr);
+		index = st_index + 1;
+		while (index <= max)
 		{
-			ft_while(nb, k + 1, n);
-			nb[k]++;
+			holders[curr] = index;
+			ft_print_combn_recursive(n, curr + 1, holders, index);
+			index++;
 		}
 	}
 }
 
 void	ft_print_combn(int n)
 {
-	int	nb[n];
+	int	holders[10];
+	int	index;
 
-	ft_while(nb, 0, n);
+	index = 0;
+	while (index < n)
+	{
+		holders[index] = 0;
+		index++;
+	}
+	ft_print_combn_recursive(n, 0, holders, -1);
 }

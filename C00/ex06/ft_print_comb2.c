@@ -6,7 +6,7 @@
 /*   By: loadjou <marvin@42quebec.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 19:22:57 by loadjou           #+#    #+#             */
-/*   Updated: 2022/02/23 19:26:42 by loadjou          ###   ########.fr       */
+/*   Updated: 2022/03/17 16:56:05 by loadjou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,4 @@ void	while1(int a, int b)
 void	ft_print_comb2(void)
 {
 	while1(0, 1);
-}
-
-int	main(void)
-{
-	ft_print_comb2();
-	return (0);
 }
