@@ -1,9 +1,9 @@
 # 42evo
 
-Here are the exercices I had to do in the Piscine month of 42Quebec. During the Piscine I got to C07 successfully and C08 unccessfuly.
+# PartI:
+Here are the exercices I had to do for the Piscine month of 42Quebec. During the Piscine I got to C07 successfully.
 
-I'll be adding the rest of Chapters to this repo, so i'll be pushing till th C13 and maybe do the three rushes and even the BSQ.
 
-If you're a piscineux and looking for solutions, don't hesitate to use the code just make sure you experiemnt and undertand it.
+# PartII:
 
-Best of luck :)
+The list of the projects on the 42 Quebec cursus. 
