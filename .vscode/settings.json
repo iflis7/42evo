@@ -2,6 +2,10 @@
     "files.associations": {
         "stdio.h": "c",
         "stdlib.h": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "__bit_reference": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "unordered_map": "c"
     }
 }
