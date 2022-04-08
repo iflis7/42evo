@@ -39,14 +39,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-int	main(void)
-{
-	const char		*s;
-	unsigned int	start;
-	size_t			len;
 
-	s = "Stringfy .";
-	start = 5;
-	len = 9;
-	printf("Res: %s\n", ft_substr(s, start, len));
-}

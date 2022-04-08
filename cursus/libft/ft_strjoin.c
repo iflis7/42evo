@@ -52,12 +52,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-int	main(void)
-{
-	const char	*s;
-	const char	*s1;
-
-	s = "String .";
-	s1 = "one";
-	printf("Resu: %s \n", ft_strjoin(s, s1));
-}

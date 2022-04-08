@@ -36,6 +36,7 @@ char	*ft_strnstr(char *haystack, const char *needle, size_t len)
 	return (0);
 }
 
+/*
 int	main(void)
 {
 	char		*hay;
@@ -45,3 +46,4 @@ int	main(void)
 	nee = "som";
 	printf("Show : %s", ft_strnstr(hay, nee, 5));
 }
+*/
