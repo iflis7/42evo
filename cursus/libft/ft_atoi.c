@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:10:10 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/07 19:40:13 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/09 12:20:50 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	size_t	i;
-	int		sign;
+	size_t			i;
+	int				sign;
 	long long int	res;
 
 	i = 0;

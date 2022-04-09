@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:10:37 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/08 21:41:04 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/09 17:46:55 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s)
 	char	*s1;
 
 	i = 0;
-	s1 = (char *)ft_calloc(ft_strlen(s), sizeof(s));
+	s1 = (char *)ft_calloc(ft_strlen(s), sizeof(s) + 1);
 	if (s1 == NULL)
 		return (NULL);
 	while (s[i])

@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:13:10 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/06 12:43:57 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/09 19:10:58 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,26 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	len_src;
-	size_t	len_dest;
 	size_t	i;
+	size_t	j;
+	size_t	len_dst;
+	size_t	len_src;
 
 	len_src = ft_strlen(src);
-	len_dest = ft_strlen(dst);
+	len_dst = ft_strlen(dst);
+	j = len_dst;
 	i = 0;
-	if (len_dest < dstsize)
-		len_src = len_src + len_dest;
-	else
-		len_src = len_src + dstsize;
-	if (dstsize)
+	if (len_dst >= dstsize)
+		len_dst = dstsize;
+	if (len_dst < dstsize - 1 && dstsize)
 	{
-		while (src[i] && (i + len_dest) < dstsize - 1)
+		while (src[i] && len_dst + i < dstsize - 1)
 		{
-			dst[i + len_dest] = src[i];
+			dst[j] = src[i];
+			j++;
 			i++;
 		}
-		dst[i + len_dest] = '\0';
+		dst[j] = '\0';
 	}
-	return (len_src);
+	return (len_dst + len_src);
 }
