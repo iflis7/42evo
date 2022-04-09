@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:12:46 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/06 12:43:57 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/08 19:31:10 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*ptr;
-	size_t	i;
+	char	*str;
 
-	i = 0;
-	ptr = (char *)s;
-	while (ptr[i])
-	{
-		if (ptr[i] == c)
-			return (&ptr[i]);
-		i++;
-	}
+	str = (char *)s;
+	while (*str || c == '\0')
+		if (*(str++) == c)
+			return (--str);
 	return (NULL);
 }
+
+// int	main(void)
+// {
+// 	void *s = "asaztuff";
+// 	int c = 's';
+// 	printf("\nft_strchr: %s \n\n", ft_strchr(s, '\0'));
+// 	// printf("\n\nft_mem: %s\n", ft_memmove(dst, src, 8));
+// }

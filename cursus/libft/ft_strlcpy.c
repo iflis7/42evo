@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 11:18:04 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/06 12:43:57 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/08 21:21:44 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 
 	i = 0;
-	if (dstsize)
-	{
-		while (src[i] && (i < dstsize))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		*dst = '\0';
-	}
+	if (dstsize < ft_strlen(src))
+		return(ft_strlen(src));
+	while (--dstsize)
+		*dst++ = *src++;
+		// {dst[i] = src[i];
+		// i++;}
+	*(--dst) = '\0';
 	i = 0;
 	while (src[i])
 		i++;
-	printf("in it::%s\n", src);
 	return (i);
 }
