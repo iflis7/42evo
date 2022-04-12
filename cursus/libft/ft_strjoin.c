@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:36:29 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/06 14:25:29 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/11 13:13:42 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,17 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
-	size_t	len;
 	char	*str;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
-	j = 0;
-	len = 0;
-	if (!*s1 && !*s2)
+	if (!s1 || !s2)
 		return (NULL);
-	while (s1[i]) //should be replaced by (strlen)
-	{
-		i++;
-		j++;
-	}
-    
-	while (s2[len])
-		len++;
-	len += i; //should be replaced by (strlen)
+	len = ft_strlen(s1) + ft_strlen(s2);
 	str = (char *)malloc((sizeof(char) * (len + 1)));
 	if (str == NULL)
 		return (NULL);
-        
 	i = 0;
 	while (s1[i])
 	{
@@ -46,9 +34,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	while (s2[i])
 	{
-		str[j++] = s2[i++];
+		str[ft_strlen(s1) + i] = s2[i];
+		i++;
 	}
 	str[len] = '\0';
 	return (str);
 }
-
