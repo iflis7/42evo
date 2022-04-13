@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 10:36:29 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/13 10:06:32 by hsaadi           ###   ########.fr       */
+/*   Created: 2022/04/12 13:03:09 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/04/12 13:08:36 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
-	size_t	i;
-	size_t	len;
-
-	i = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc((sizeof(char) * (len + 1)));
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (s1[i])
+	if (n >= 0 && n < 10)
+		ft_putchar_fd(n + '0', fd);
+	else if (n < 0)
 	{
-		str[i] = s1[i];
-		i++;
+		if (n == -2147483648)
+			write(fd, "-2147483648", 11);
+		else
+		{
+			write(fd, "-", 1);
+			ft_putnbr_fd(n * (-1), fd);
+		}
 	}
-	i = 0;
-	while (s2[i])
+	else
 	{
-		str[ft_strlen(s1) + i] = s2[i];
-		i++;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
-	str[len] = '\0';
-	return (str);
 }

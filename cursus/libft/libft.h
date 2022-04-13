@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 17:10:04 by eardingh          #+#    #+#             */
-/*   Updated: 2022/04/08 18:46:13 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/13 11:00:42 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,10 @@ void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
 
 #endif
