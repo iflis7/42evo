@@ -10,8 +10,7 @@ SRC			= ft_memset ft_bzero ft_memcpy ft_memcpy ft_memmove ft_memchr ft_memcmp ft
 				ft_calloc ft_strdup ft_substr ft_strjoin ft_strtrim ft_itoa ft_split ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd \
 				ft_strmapi ft_striteri \
 				 
-BONUS_SRC		= ft_lstnew   ft_lstadd_front\
-# ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone ft_lstclear ft_lstiter ft_lstmap
+BONUS_SRC		= ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone ft_lstclear ft_lstiter ft_lstmap\
 
 SRCS		= $(addsuffix .c, ${SRC})
 BONUS_SRCS		= $(addsuffix .c, ${BONUS_SRC})

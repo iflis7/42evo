@@ -62,9 +62,9 @@ char	**ft_split(char const *s, char c)
 			if (index == 0)
 			{
 				tab[j] = malloc(sizeof(char) * word_len(s, i, c) + 1);
-				// if (!tab[j])
-				// 	return (NULL);
-				tab[j][ word_len(s, i, c)] = '\0';
+				if (!tab[j])
+					return (NULL);
+				tab[j][word_len(s, i, c)] = '\0';
 			}
 			tab[j][index] = s[i];
 			index++;
@@ -80,10 +80,9 @@ int	main(void)
 	char	*tab;
 	char	**ret;
 
-	tab =  "as aa      split       this for   me  !";
+	tab = "as aa      split       this for   me  !";
 	// expected = ((char *[6]){"split", "this", "for", "me", "!", NULL});
 	ret = ft_split(tab, ' ');
-
 	// tab = {"aaam aa"};
 	// int		i;
 	// ret = ft_split(tab, 'm');
@@ -97,6 +96,4 @@ int	main(void)
 	printf("string1: %s\n", ret[1]);
 	printf("string2: %s\n", ret[2]);
 	printf("string3: %s\n", ret[3]);
-	// printf("res: %i\n", word_len(tab, 0, 'm'));
-	// printf("res: %i\n", w_count(tab, 'm'));
 }

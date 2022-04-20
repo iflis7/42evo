@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/20 11:34:54 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/04/20 15:12:32 by hsaadi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	get_length(int nbr)
@@ -12,7 +24,7 @@ int	get_length(int nbr)
 	return (len);
 }
 
-int	signHandle(int num)
+int	sign_handle(int num)
 {
 	if (num < 0)
 		return (-num);
@@ -35,14 +47,8 @@ char	*ft_itoa(int n)
 		str[0] = '0';
 	while (n)
 	{
-		str[--len] = signHandle(n % 10) + '0';
+		str[--len] = sign_handle(n % 10) + '0';
 		n /= 10;
 	}
 	return (str);
 }
-
-// int	main(void)
-// {
-// 	// printf("get_length:: %i\n", get_length(123));
-// 	printf("ft_itoa: %s\n", ft_itoa(2));
-// }
