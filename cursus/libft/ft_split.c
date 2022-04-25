@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 11:21:50 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/25 11:25:45 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/25 13:00:05 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	**ft_split(char const *s, char c)
 	char	**tab;
 	int		i;
 	int		j;
-	int len;
+	int		len;
 
 	if (!s)
 		return (NULL);

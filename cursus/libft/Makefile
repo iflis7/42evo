@@ -12,13 +12,7 @@ SRCS			= ft_lstnew.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memcpy.c ft_memmove.c
 				 
 BONUS_SRCS		=  ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c\
 
-# SRCS		= $(addsuffix .c, ${SRCS})
-# BONUS_SRCS		= $(addsuffix .c, ${BONUS_SRCS})
-
-# HEAD		= ./includes/ 
-
 OBJS		= ${SRCS:.c=.o}
-
 BONUS_OBJS		= ${BONUS_SRCS:.c=.o}
 
 # .c.o:

@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:35:17 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/25 09:02:27 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/25 13:00:20 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 			end--;
 		str = (char *)malloc(sizeof(char) * ((end - start) + 1));
 		if (!str)
-			return(NULL);
+			return (NULL);
 		ft_strlcpy(str, &s1[start], (end - start) + 1);
 	}
 	return (str);
