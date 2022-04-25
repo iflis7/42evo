@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 15:32:46 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/25 12:59:51 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/25 14:17:07 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst || !f)
 		return (NULL);
-	n_list = 0;
+	n_list = NULL;
 	while (lst)
 	{
 		n_element = ft_lstnew((*f)(lst->content));

@@ -21,7 +21,7 @@ $(NAME):	$(OBJS)
 all:		$(NAME)
 
 bonus:		$(OBJS) $(BONUS_OBJS)
-			$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
+			$(AR) $(NAME) $(OBJ) $(BONUS_OBJS)
 
 clean:
 			$(RM) $(OBJS) $(BONUS_OBJS)
