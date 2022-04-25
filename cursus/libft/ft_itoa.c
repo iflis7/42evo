@@ -6,13 +6,13 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:34:54 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/20 15:12:32 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/25 10:39:13 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	get_length(int nbr)
+static int	get_length(int nbr)
 {
 	int	len;
 
@@ -24,7 +24,7 @@ int	get_length(int nbr)
 	return (len);
 }
 
-int	sign_handle(int num)
+static int	sign_handle(int num)
 {
 	if (num < 0)
 		return (-num);

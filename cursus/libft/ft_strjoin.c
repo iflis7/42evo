@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 10:36:29 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/13 10:06:32 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/25 08:58:15 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
 	str = (char *)malloc((sizeof(char) * (len + 1)));
-	if (str == NULL)
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (s1[i])

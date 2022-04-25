@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:35:17 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/20 11:35:21 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/25 09:02:27 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	start;
 	size_t	end;
 
-	str = 0;
+	str = NULL;
 	if (s1 && set)
 	{
 		start = 0;
@@ -28,8 +28,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 		while (s1[end - 1] && ft_strchr(set, s1[end - 1]) && end > start)
 			end--;
 		str = (char *)malloc(sizeof(char) * ((end - start) + 1));
-		if (str)
-			ft_strlcpy(str, &s1[start], (end - start) + 1);
+		if (!str)
+			return(NULL);
+		ft_strlcpy(str, &s1[start], (end - start) + 1);
 	}
 	return (str);
 }

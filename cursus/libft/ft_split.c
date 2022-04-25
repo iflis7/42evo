@@ -1,19 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/25 11:21:50 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/04/25 11:25:45 by hsaadi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	word_len(char const *str, int index, char c)
-{
-	int	len;
-
-	len = 0;
-	while (str[index] && str[index] == c)
-		index++;
-	while (str[index] && str[index] != c && len++)
-		index++;
-	// printf("word lenght:: %i\n", len);
-	return (len);
-}
-
-int	w_count(char const *str, char c)
+static int	w_count(char const *str, char c)
 {
 	int	i;
 	int	flag;
@@ -33,67 +32,48 @@ int	w_count(char const *str, char c)
 		}
 		i++;
 	}
-	// printf("word count:: : %i\n", w_count);
 	return (w_count);
+}
+
+static char	*spliter(const char *s, char c, int *start)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	j = *start;
+	i = 0;
+	while (s[j] == c)
+		j++;
+	while (s[j] && s[j] != c)
+	{
+		j++;
+		i++;
+	}
+	str = ft_substr(s, j - i, i);
+	*start = j;
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
+	int		i;
+	int		j;
+	int len;
 
-	int j, i, index;
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	j = 0;
 	i = 0;
-	index = 0;
-	tab = malloc(sizeof(char) * w_count(s, c) + 1);
+	len = w_count(s, c);
+	tab = ft_calloc(sizeof(char *), w_count(s, c) + 1);
 	if (!tab)
 		return (NULL);
-	while (s[i])
+	j = 0;
+	while (i < w_count(s, c))
 	{
-		if ((s[i] == c) && (s[i + 1] != c) && (index > 0))
-		{
-			j++;
-			index = 0;
-		}
-		else if (s[i] != c)
-		{
-			if (index == 0)
-			{
-				tab[j] = malloc(sizeof(char) * word_len(s, i, c) + 1);
-				if (!tab[j])
-					return (NULL);
-				tab[j][word_len(s, i, c)] = '\0';
-			}
-			tab[j][index] = s[i];
-			index++;
-		}
+		tab[i] = spliter(s, c, &j);
 		i++;
 	}
-	// tab[w_count(s, c)] = NULL;
 	return (tab);
-}
-
-int	main(void)
-{
-	char	*tab;
-	char	**ret;
-
-	tab = "as aa      split       this for   me  !";
-	// expected = ((char *[6]){"split", "this", "for", "me", "!", NULL});
-	ret = ft_split(tab, ' ');
-	// tab = {"aaam aa"};
-	// int		i;
-	// ret = ft_split(tab, 'm');
-	// i = 0;
-	// while (ret[i])
-	// {
-	// 	printf("string: %i -- %s\n",i + 1, ret[i]);
-	// 	i++;
-	// }
-	printf("string0: %s\n", ret[0]);
-	printf("string1: %s\n", ret[1]);
-	printf("string2: %s\n", ret[2]);
-	printf("string3: %s\n", ret[3]);
 }

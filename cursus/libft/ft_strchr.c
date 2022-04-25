@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:12:46 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/20 15:10:33 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/25 10:48:41 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *s, int c)
 
 	str = (char *)s;
 	while (*str || c == '\0')
-		if (*(str++) == c)
+		if (*(str++) == (char)c)
 			return (--str);
 	return (NULL);
 }

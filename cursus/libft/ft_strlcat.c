@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:13:10 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/09 19:10:58 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/25 07:35:13 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	if (len_dst < dstsize - 1 && dstsize)
 	{
 		while (src[i] && len_dst + i < dstsize - 1)
-		{
-			dst[j] = src[i];
-			j++;
-			i++;
-		}
+			dst[j++] = src[i++];
 		dst[j] = '\0';
 	}
 	return (len_dst + len_src);

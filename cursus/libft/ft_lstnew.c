@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 13:09:30 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/19 16:43:49 by hsaadi           ###   ########.fr       */
+/*   Created: 2022/04/21 00:37:20 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/04/21 01:05:38 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*new_list;
+	t_list	*n_element;
 
-	new_list = NULL;
-	new_list = malloc(sizeof(t_list));
-	if (!new_list)
+	n_element = malloc(sizeof(t_list));
+	if (!n_element)
 		return (NULL);
-	new_list->next = NULL;
-	new_list->content = content;
-	return (new_list);
+	n_element->content = content;
+	n_element->next = NULL;
+	return (n_element);
 }

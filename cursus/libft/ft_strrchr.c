@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:14:46 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/08 19:50:56 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/25 10:49:21 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*ptr;
+	char	*str;
 	size_t	len;
 
 	len = ft_strlen(s);
-	ptr = (char *)s;
+	str = (char *)s;
 	if (c == '\0')
-		return (&ptr[len]);
+		return (&str[len]);
 	while (len--)
-		if (ptr[len] == c)
-			return (&ptr[len]);
+		if (str[len] == (char)c)
+			return (&str[len]);
 	return (NULL);
 }
