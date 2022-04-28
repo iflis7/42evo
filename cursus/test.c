@@ -1,24 +1,127 @@
-#include <string.h>
 #include <stdio.h>
-int main()
+#include <stdlib.h>
+#include <string.h>
+
+struct sPerson {
+	int age;
+	struct sPerson *nextInLine;
+};
+
+struct sPerson *getNewPerson(const int age) 
 {
-    char str1[50] = "I am going from Delhi to Gorakhpur";
-    char str2[50] = "I am going from Delhi to Gorakhpur";
-    //Use of memmove
-    printf( "Function:\tmemmove with overlap\n" );
-    printf( "Orignal :\t%s\n",str1);
-    printf( "Source:\t\t%s\n", str1 + 5 );
-    printf( "Destination:\t%s\n", str1 + 11 );
-    memmove( str1 + 11, str1 + 5, 29 );
-    printf( "Result:\t\t%s\n", str1 );
-    printf( "Length:\t\t%lu characters\n\n", strlen( str1 ) );
-    //Use of memcpy
-    printf( "Function:\tmemcpy with overlap\n" );
-    printf( "Orignal :\t%s\n",str2);
-    printf( "Source:\t\t%s\n", str2 + 5 );
-    printf( "Destination:\t%s\n", str2 + 11 );
-    memcpy( str2 + 11, str2 + 5, 29 );
-    printf( "Result:\t\t%s\n", str2 );
-    printf( "Length:\t\t%lu characters\n\n", strlen( str2 ) );
-    return 0;
+    struct sPerson *newPerson = NULL;
+    newPerson = malloc(sizeof(struct sPerson));
+    if (newPerson != NULL)
+    {
+        newPerson->nextInLine = NULL;
+        newPerson->age = age;
+        printf("created new person at %p\n", newPerson);
+    }
+	else
+	{
+		printf("Allocation Failure!! \n");
+	}
+    return newPerson;
+}
+
+void printPerson(const struct sPerson *person, const char *comment)
+{
+    if (person == NULL)
+    {
+        printf("%s is NULL\n", comment);
+    }
+    else
+    {
+       printf("%s: age:%d address:%p nextInLine:%p\n", 
+            comment,
+            person->age, 
+            person,
+            person->nextInLine);
+    }
+    
+}
+
+void PrintList(const struct sPerson *list)
+{
+	printf("Printing List:\n");
+	const struct sPerson *t;
+	t = list;
+    if(t == NULL)
+    {
+        printf("list is empty\n");
+    }
+    else
+    {
+        while(t)
+        {
+            printPerson(t, "t");
+            t = t->nextInLine;
+        }
+    }
+}
+
+void CleanUp(struct sPerson *list)
+{
+    struct sPerson *next;
+    while(list)
+    {
+        next = list->nextInLine;
+        printf("Cleaning %d\n", list->age);
+        free(list);
+        list = next;
+    }
+}
+
+int main() 
+{
+	printf("\n\n** START **\n\n");
+
+    struct sPerson *first = NULL;
+    struct sPerson *added = NULL;
+
+    char command[64];
+	int age;
+
+    while(1)
+    { 
+        printf( "Enter a command or value : ");
+		fgets(command, 64, stdin);
+		if (strcmp("q\n", command) == 0) 
+		{
+			printf("Quitting..\n");
+			break;
+		}
+		else if (strcmp("print\n", command) == 0) 
+        {
+            printf("Printing..\n");
+            PrintList(first);
+        }
+        else if(sscanf(command, "%d", &age) != 0)
+        {
+            printf("Adding %d\n", age);
+            if (first == NULL)
+            {
+                first = getNewPerson(age);
+                if(first != NULL)
+                {
+                    added = first;
+                }
+            }
+            else
+            {
+                added->nextInLine = getNewPerson(age);
+                if(added->nextInLine != NULL)
+                {
+                    added = added->nextInLine;
+                }
+            }
+            
+        }
+    }
+
+    CleanUp(first);
+    first = NULL;
+    added = NULL;
+
+	return 0;
 }

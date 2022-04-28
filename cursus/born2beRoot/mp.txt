@@ -1,0 +1,4 @@
+root: Numerique17
+iflis: Quebec1234
+passphrase: AzulFellawenLesKabyles
+testuser: Canada0987
