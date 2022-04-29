@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 07:07:19 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/26 07:12:41 by hsaadi           ###   ########.fr       */
+/*   Created: 2022/04/12 07:42:34 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/04/12 07:50:11 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-
-
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	if (fd)
+		write(fd, &c, 1);
+}

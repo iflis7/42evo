@@ -6,13 +6,14 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 17:10:04 by eardingh          #+#    #+#             */
-/*   Updated: 2022/04/25 15:53:10 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/04/29 16:09:43 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -21,6 +22,11 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+/* ***** ADDED ***** */
+void				ft_putchar(int c);
+void				ft_putstr(char *s);
+void				ft_putnbr(int n);
 
 /*  ***** FIRST PART *****  */
 
@@ -47,7 +53,7 @@ int					ft_atoi(const char *str);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *s1);
 char				*ft_strnstr(const char *haystack, const char *needle,
-						size_t len);
+					size_t len);
 
 /*  ***** SECOND PART *****  */
 
@@ -73,5 +79,6 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-						void (*del)(void *));
+					void (*del)(void *));
+
 #endif

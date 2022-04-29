@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
 struct sPerson {
 	int age;
 	struct sPerson *nextInLine;
@@ -125,3 +126,6 @@ int main()
 
 	return 0;
 }
+*/
+
+
