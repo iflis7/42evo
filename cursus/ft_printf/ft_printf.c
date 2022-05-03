@@ -1,71 +1,49 @@
 #include "ft_printf.h"
-#include "libft/libft.h"
+
+void	ft_formater(char flag, va_list args, int *len)
+{
+	if (flag == 'c')
+		ft_putchar((char)va_arg(args, void *), len);
+	else if (flag == 's')
+		ft_putstr((char *)va_arg(args, void *), len);
+	else if (flag == 'p')
+		printf("%p", &flag); // fixe this shit man!!!
+	else if (flag == 'd' || flag == 'i')
+		ft_putnbr((int)va_arg(args, void *), len);
+	else if (flag == 'u')
+		ft_putuns((unsigned int)va_arg(args, void *), flag, len);
+	else if (flag == 'x' || flag == 'X')
+		ft_putuns((unsigned int)va_arg(args, void *), flag, len);
+}
 
 int	ft_printf(const char *fmt, ...)
 {
-	va_list			args;
-	unsigned int	u;
+	va_list	args;
+	int		i;
+	int		len;
 
-	int j, d, i;
-	char c, *s;
-	j = 0;
+	len = 0;
+	i = 0;
 	if (!*fmt)
-		write(1, "(null)", 6);
+		return (-1);
 	va_start(args, fmt);
-	while (fmt[j])
+	while (fmt[i])
 	{
-		// if (*fmt == '%')
-		if (fmt[j] == '%')
-		{
-			// fmt++;
-			j++;
-			if (fmt[j] == 'c')
-			{
-				c = (char)va_arg(args, void *);
-				ft_putchar(c);
-			}
-			else if (fmt[j] == 's')
-			{
-				s = (char *)va_arg(args, void *);
-				ft_putstr(s);
-			}
-			else if (fmt[j] == 'p')
-				printf("%p", &fmt[j]); // fixe this shit man!!!
-			else if (fmt[j] == 'd')
-			{
-				d = (int)va_arg(args, void *);
-				ft_putnbr(d);
-			}
-			else if (fmt[j] == 'i')
-			{
-				i = (int)va_arg(args, void *);
-				ft_putnbr(i);
-			}
-			else if (fmt[j] == 'u')
-			{
-				u = (unsigned int)va_arg(args, void *);
-				ft_putnbr(u);
-			}
-			else if (fmt[j] == 'x')
-				printf("*** Hexa min ***");
-			else if (fmt[j] == 'X')
-				printf("*** Hexa maj ***");
-		}
-		if (fmt[j] != '%' && (fmt[j - 1]) != '%')
-			write(1, &fmt[j], 1);
-        if (fmt[j] == '%' && (fmt[j - 1]) == '%')
-			write(1, &fmt[j], 1);
-		// fmt++;
-		j++;
+		if (fmt[i] == '%')
+			ft_formater(fmt[++i], args, &len);
+		else
+			len += write(1, fmt + i, 1);
+		++i;
 	}
-	return (0);
+	va_end(args);
+	return (len);
 }
 
 int	main(void)
 {
-	char c = 'h';
-	char *s = " ,,, Azul ,,, ";
+	// char c = 'h';
+	// char *s = " ,,, Azul ,,, ";
 
-	ft_printf("%c ihih ** %s ** %d ** %i ** %u  %% \n", c, s, 12, 51, 54);
-    ft_printf("");
+	ft_printf("\n%u ** %x ** %X \n\n", 1, 12, 13);
+	// ft_printf("");
 }

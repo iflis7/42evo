@@ -5,18 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 07:07:19 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/04/29 14:57:57 by hsaadi           ###   ########.fr       */
+/*   Created: 2022/05/02 19:03:23 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/05/02 19:53:48 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
+/* INCLUDES */
+
 # include <stdarg.h>
+# include <stdio.h>
 # include <unistd.h>
 
-int ft_printf(const char *fmt, ...);
+/* PROTOTYPES */
+
+int		ft_printf(const char *fmt, ...);
+void	ft_putstr(char *str, int *len);
+void	ft_putnbr(int nb, int *len);
+void	ft_putuns(unsigned int nb, char base, int *len);
+void	ft_putchar(char c, int *len);
+int		ft_strlen(char *str);
+int		ft_intlen(int nb);
 
 #endif
