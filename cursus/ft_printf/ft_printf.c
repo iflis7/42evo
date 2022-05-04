@@ -7,13 +7,15 @@ void	ft_formater(char flag, va_list args, int *len)
 	else if (flag == 's')
 		ft_putstr((char *)va_arg(args, void *), len);
 	else if (flag == 'p')
-		printf("%p", &flag); // fixe this shit man!!!
+		write(1, "stuff", 5); // fixe this shit man!!!
 	else if (flag == 'd' || flag == 'i')
 		ft_putnbr((int)va_arg(args, void *), len);
 	else if (flag == 'u')
 		ft_putuns((unsigned int)va_arg(args, void *), flag, len);
 	else if (flag == 'x' || flag == 'X')
 		ft_putuns((unsigned int)va_arg(args, void *), flag, len);
+	else if (flag == '%')
+		ft_putchar(flag, len);
 }
 
 int	ft_printf(const char *fmt, ...)
@@ -37,13 +39,4 @@ int	ft_printf(const char *fmt, ...)
 	}
 	va_end(args);
 	return (len);
-}
-
-int	main(void)
-{
-	// char c = 'h';
-	// char *s = " ,,, Azul ,,, ";
-
-	ft_printf("\n%u ** %x ** %X \n\n", 1, 12, 13);
-	// ft_printf("");
 }

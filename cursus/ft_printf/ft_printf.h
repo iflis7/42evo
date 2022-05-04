@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 19:03:23 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/02 19:53:48 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/03 18:32:04 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 /* INCLUDES */
 
 # include <stdarg.h>
-# include <stdio.h>
 # include <unistd.h>
 
 /* PROTOTYPES */

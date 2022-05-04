@@ -1,16 +1,12 @@
 NAME		= libftprintf.a
-NAMELFT		= libft.a
 
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 AR			= ar rcs
 
-DIRLIB		= ./libft/
-
-SRCS		= ft_printf.c \
+SRCS		= ft_printf.c ft_utils.c 
 OBJS		= $(SRCS:.c=.o)
-
 
 $(NAME):	$(OBJS)
 			$(AR) $(NAME) $(OBJS)
@@ -26,3 +22,4 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all bonus clean fclean re
+
