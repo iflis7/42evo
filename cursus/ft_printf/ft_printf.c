@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/04 07:49:49 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/05/04 11:04:57 by hsaadi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	ft_formater(char flag, va_list args, int *len)
@@ -7,7 +19,10 @@ void	ft_formater(char flag, va_list args, int *len)
 	else if (flag == 's')
 		ft_putstr((char *)va_arg(args, void *), len);
 	else if (flag == 'p')
-		write(1, "stuff", 5); // fixe this shit man!!!
+	{
+		*len += write(1, "0x", 2);
+		ft_putunslong((unsigned long int)va_arg(args, void *), len);
+	}
 	else if (flag == 'd' || flag == 'i')
 		ft_putnbr((int)va_arg(args, void *), len);
 	else if (flag == 'u')

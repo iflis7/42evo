@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 19:03:23 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/03 18:32:04 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/04 10:33:55 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	ft_putnbr(int nb, int *len);
 void	ft_putuns(unsigned int nb, char base, int *len);
 void	ft_putchar(char c, int *len);
 int		ft_strlen(char *str);
-int		ft_intlen(int nb);
+void	ft_putunslong(unsigned long int nb, int *len);
 
 #endif
