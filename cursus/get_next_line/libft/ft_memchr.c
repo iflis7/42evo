@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 07:20:05 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/06 11:12:35 by hsaadi           ###   ########.fr       */
+/*   Created: 2022/04/04 11:58:17 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/05/06 07:42:43 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFFER_SIZE 5
+void	*ft_memchr(  void *s, int c, size_t n)
+{
+	unsigned char	*str;
 
-# include <fcntl.h>
-# include <limits.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <sys/stat.h>
-# include <sys/types.h>
-# include <unistd.h>
-
-char	*get_next_line(int fd);
-char	*ft_strjoin(char *s1, char *s2);
-int		ft_strlen(char *str);
-
-#endif
+	str = (unsigned char *)s;
+	while (n--)
+		if (*str++ == (unsigned char)c)
+			return ((unsigned char *)--str);
+	return (NULL);
+}
