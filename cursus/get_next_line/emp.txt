@@ -1,4 +1,4 @@
-The function returns the next line from the [fd] with its respective '\n',
+The function returns the next line from the [fd] with its respective 
 or the last line of the file. It returns null if there's nothing to read
 or if an error occurs.
 This function copies BUFFER_SIZE bytes from the string [buffer] to the
@@ -8,3 +8,26 @@ If a newline is found in the cumulative buffer [stash], the contents until
 '\n' are copied to line and the rest is stored again in [stash]. If no
 newline is found, the whole content of [stash] is copied to line and [stash] 
 points to NULL.
+
+
+    int		i;
+	int		j;
+	char	*new;
+
+	i = 0;
+	j = 0;
+	if (stat[i])
+	{
+		while (stat[i] && stat[i] != '\n')
+			i++;
+		i++;
+		new = ft_calloc(ft_strlen(stat) - i + 2, sizeof(char));
+		if (!new)
+			return (NULL);
+		while (stat[i])
+			new[j++] = stat[i++];
+	}
+	else
+		new = NULL;
+	free(stat);
+	return (new);

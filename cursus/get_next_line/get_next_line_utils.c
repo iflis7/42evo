@@ -10,8 +10,30 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+char	*ft_strchr(char *str, int c)
+{
+	while (*str || c == '\0')
+		if (*(str++) == (char)c)
+			return (--str);
+	return (NULL);
+}
 
-char	*ft_strjoin(char  *s1, char  *s2)
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*tab;
+
+	tab = malloc(nmemb * size);
+	if (!tab)
+		return (NULL);
+	if (size == SIZE_MAX)
+		return (NULL);
+	while (*(char *)tab)
+		*(char *)tab++ = '\0';
+	// ft_bzero(tab, nmemb * size);
+	return (tab);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	size_t	i;
@@ -37,5 +59,39 @@ char	*ft_strjoin(char  *s1, char  *s2)
 		i++;
 	}
 	str[len] = '\0';
+	return (str);
+}
+
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+{
+	size_t	len;
+
+	len = ft_strlen(src);
+	if (dstsize == 0)
+		return (len);
+	while (*src && --dstsize)
+		*dst++ = *src++;
+	*(dst) = '\0';
+	return (len);
+}
+
+char	*ft_substr(char *s, int start, int len)
+{
+	char	*str;
+	int	l;
+	int	i;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	l = ft_strlen(s);
+	if (len > l)
+		len = l;
+	str = ft_calloc(sizeof(char), len + 1);
+	if (!str)
+		return (NULL);
+	while (start < l && i < len)
+		str[i++] = s[start++];
+	str[i] = '\0';
 	return (str);
 }

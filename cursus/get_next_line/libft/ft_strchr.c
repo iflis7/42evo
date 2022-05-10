@@ -6,13 +6,13 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:12:46 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/06 07:42:43 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/10 11:38:34 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(  char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	char	*str;
 
