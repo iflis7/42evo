@@ -1,9 +1,9 @@
 # 42evo
 
-From ###Hafid ###Saadi 
+Author:  _Hafid_ _Saadi_ <br />
 Reach out to me on: 
-    ###<a href="https://www.twitter.com/iflis7" target="_blank">Twitter</a>
-    ###<a href="https://www.instagram.com/iflis7" target="_blank">Instagram</a>
+    <a href="https://www.twitter.com/iflis7" target="_blank">Twitter</a>
+    <a href="https://www.instagram.com/iflis7" target="_blank">Instagram</a>
 
 
 
