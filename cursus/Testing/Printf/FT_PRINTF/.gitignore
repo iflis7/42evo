@@ -1,0 +1,10 @@
+.vscode
+exe
+a.out
+ft_printf.a
+*.o
+main.c
+tester
+libftprintf.a
+exe.dSYM
+.DS_Store
