@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 18:21:35 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/11 18:26:13 by hsaadi           ###   ########.fr       */
+/*   Created: 2022/05/11 18:19:29 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/05/11 18:39:46 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-char	*read_and_keep(int fd, char *keep)
+static char	*read_and_keep(int fd, char *keep)
 {
 	char	*buff;
 	int		rd_bytes;
@@ -36,7 +36,7 @@ char	*read_and_keep(int fd, char *keep)
 	return (keep);
 }
 
-char	*get_line(char *keep)
+static char	*get_line(char *keep)
 {
 	int		i;
 	char	*str;
@@ -53,7 +53,7 @@ char	*get_line(char *keep)
 	return (str);
 }
 
-char	*delete_shit(char *keep)
+static char	*delete_shit(char *keep)
 {
 	int		i;
 	int		j;
