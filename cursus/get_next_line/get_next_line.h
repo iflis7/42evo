@@ -6,14 +6,14 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 07:20:05 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/10 16:22:23 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/10 20:24:11 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 5
 
 # include <fcntl.h>
 # include <limits.h>
