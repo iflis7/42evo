@@ -3,7 +3,8 @@
 Author:  _Hafid_ _Saadi_ <br />
 Reach out to me on: 
     <a href="https://www.twitter.com/iflis7" target="_blank">Twitter</a>
-    <a href="https://www.instagram.com/iflis7" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/iflis7" target="_blank">Instagram</a> 
+     <a href="https://iflis.hns.to/" target="_blank">Dlinks</a>
 
 
 
@@ -13,7 +14,7 @@ Contains the exercices I had to do for the Piscine month of 42Quebec. During the
 
 # PartII:(Cursus)
 
-The list of the projects on the 42 Quebec cursus. 
+The list of the projects for the 42 Quebec cursus. 
 
 You will find in this folder every project I had to do for the Learner cursus.
 
