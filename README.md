@@ -1,10 +1,17 @@
 # 42evo
 
+From ###Hafid ###Saadi 
+Reach out to me on: 
+    ###<a href="https://www.twitter.com/iflis7" target="_blank">Twitter</a>
+    ###<a href="https://www.instagram.com/iflis7" target="_blank">Instagram</a>
+
+
+
 # PartI: (piscine)
 Contains the exercices I had to do for the Piscine month of 42Quebec. During the Piscine I got successfully to C07.
 
 
-# PartII:
+# PartII:(Cursus)
 
 The list of the projects on the 42 Quebec cursus. 
 
