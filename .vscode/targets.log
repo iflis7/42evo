@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Wed May 11 16:11:18 2022
+# Make data base, printed on Wed May 11 19:19:54 2022
 
 # Variables
 
@@ -15,6 +15,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
+# environment
+PROVIDE_FULLSTACK_ACTION = true
 # environment
 VSCODE_LOG_NATIVE = false
 # automatic
@@ -38,13 +40,17 @@ MAKEFILE_LIST :=
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cb940032t9/T/vscode-ipc-fb05d654-afb4-42ce-a7bb-0fb36711766a.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cb940032t9/T/vscode-ipc-9e7352e2-13aa-4f54-9806-c9a614d5bfb2.sock
 # environment
 VSCODE_CWD = /
 # environment
 PATH = /Users/hsaadi/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+GOLANG_EXECUTABLE = go
+# environment
+THREE_SCALE_USER_TOKEN = 207c527cfc2a6b8dcf4fa43ad7a976da
 # environment
 LaunchInstanceID = 0ACA6146-C089-40D1-BFC6-F59B2F974C7A
 # environment
@@ -53,6 +59,8 @@ VSCODE_LOG_STACK = false
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+UUID = 763869a7-118e-436a-abc2-c196171415c7
 # environment
 SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.krEeLRfNcZ/Listeners
 # automatic
@@ -77,6 +85,8 @@ VSCODE_CODE_CACHE_PATH = /Users/hsaadi/Library/Application Support/Code/CachedDa
 LOGNAME = hsaadi
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+TELEMETRY_ID = 07821635-d38c-4d2a-9039-fca7f6ba2071
 # environment
 ZSH = /Users/hsaadi/.oh-my-zsh
 # environment
@@ -105,6 +115,8 @@ LESS = -R
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# environment
+UTM_SOURCE = vscode
 # default
 .VARIABLES := 
 # environment
@@ -123,6 +135,8 @@ MFLAGS = -Rrqp
 XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+RECOMMENDER_API_URL = https://gw.api.openshift.io//api/v2
 # automatic
 +F = $(notdir $+)
 # environment
@@ -152,7 +166,7 @@ LANG = C
 # environment
 VSCODE_PID = 2612
 # variable set hash-table stats:
-# Load=70/1024=7%, Rehash=0, Collisions=1/91=1%
+# Load=77/1024=8%, Rehash=0, Collisions=2/98=2%
 
 # Pattern-specific Variable Values
 
@@ -160,9 +174,9 @@ VSCODE_PID = 2612
 
 # Directories
 
-# . (device 16777225, inode 950010): 9 files, no impossibilities.
+# . (device 16777225, inode 950010): 8 files, no impossibilities.
 
-# 9 files, no impossibilities in 1 directories.
+# 8 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -175,6 +189,9 @@ all:
 #  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
+ 
+make: *** No rule to make target `all'.  Stop.
+
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
@@ -234,8 +251,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Wed May 11 16:11:18 2022
+# Finished Make data base on Wed May 11 19:19:54 2022
 
  
-make: *** No rule to make target `all'.  Stop.
-
