@@ -38,3 +38,9 @@ This project aims to introduce you to the wonderful world of virtualization.
 You will create your first machine in VirtualBox (or UTM if you can’t use VirtualBox)
 under specific instructions. Then, at the end of this project, you will be able to set up
 your own operating system while implementing strict rules.
+
+## Push_swap
+This project will make you sort data on a stack, with a limited set of instructions, using
+the lowest possible number of actions. To succeed you’ll have to manipulate various
+types of algorithms and choose the most appropriate solution (out of many) for an
+optimized data sorting
