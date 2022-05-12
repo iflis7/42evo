@@ -6,11 +6,12 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 18:21:18 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/11 18:48:57 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/12 09:06:38 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -40,19 +41,13 @@ int	ft_strlen(char *str)
 
 char	*ft_strchr(char *str, int c)
 {
-	int	i;
-
-	i = 0;
 	if (!str)
 		return (0);
 	if (c == '\0')
 		return ((char *)&str[ft_strlen(str)]);
-	while (str[i] != '\0')
-	{
-		if (str[i] == (char)c)
-			return ((char *)&str[i]);
-		i++;
-	}
+	while (*str)
+		if (*(str++) == (char)c)
+			return (--str);
 	return (0);
 }
 

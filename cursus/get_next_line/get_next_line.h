@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 18:21:45 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/11 18:49:15 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/12 08:59:21 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int		ft_strlen(char *str);
 char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *keep, char *buff);
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
+
 
 #endif

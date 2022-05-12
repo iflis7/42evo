@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 18:21:35 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/11 18:26:13 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/12 08:55:18 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,14 @@ char	*delete_shit(char *keep)
 char	*get_next_line(int fd)
 {
 	char		*str;
-	static char	*keep[OPEN_MAX];
+	static char	*keep;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	keep[fd] = read_and_keep(fd, keep[fd]);
-	if (!keep[fd])
+	keep = read_and_keep(fd, keep);
+	if (!keep)
 		return (NULL);
-	str = get_line(keep[fd]);
-	keep[fd] = delete_shit(keep[fd]);
+	str = get_line(keep);
+	keep = delete_shit(keep);
 	return (str);
 }
