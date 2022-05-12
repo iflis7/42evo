@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 18:49:59 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/12 09:06:26 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/12 10:03:06 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strchr(char *str, int c)
+int	ft_strchr(char *str, int c)
 {
 	if (!str)
 		return (0);
 	if (c == '\0')
-		return ((char *)&str[ft_strlen(str)]);
+		return (1);
 	while (*str)
 		if (*(str++) == (char)c)
-			return (--str);
+			return (1);
 	return (0);
 }
 

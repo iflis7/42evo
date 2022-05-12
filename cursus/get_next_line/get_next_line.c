@@ -6,11 +6,12 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 18:21:35 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/12 08:55:18 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/12 13:23:15 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 char	*read_and_keep(int fd, char *keep)
 {
@@ -72,7 +73,7 @@ char	*delete_shit(char *keep)
 	if (!str)
 		return (NULL);
 	i++;
-	while (keep[i] != '\0')
+	while (keep[i])
 		str[j++] = keep[i++];
 	str[j] = '\0';
 	free(keep);
