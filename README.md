@@ -1,5 +1,9 @@
 # 42evo
 
+![](https://github.com/iflis7/42evo/workflows/norminette/badge.svg)
+![](https://github.com/iflis7/42evo/workflows/build/badge.svg)
+![](https://img.shields.io/tokei/lines/github/iflis7/42evo?style=plastic?color=blue)
+
 Author:  _Hafid_ _Saadi_ <br />
 Reach out to me on: 
     <a href="https://www.twitter.com/iflis7" target="_blank">Twitter</a>
@@ -39,8 +43,14 @@ You will create your first machine in VirtualBox (or UTM if you can’t use Virt
 under specific instructions. Then, at the end of this project, you will be able to set up
 your own operating system while implementing strict rules.
 
+## Minitalk
+The purpose of this project is to code a small data exchange program
+using UNIX signals.
+Version: 2
+
 ## Push_swap
 This project will make you sort data on a stack, with a limited set of instructions, using
 the lowest possible number of actions. To succeed you’ll have to manipulate various
 types of algorithms and choose the most appropriate solution (out of many) for an
 optimized data sorting
+
