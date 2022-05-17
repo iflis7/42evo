@@ -6,14 +6,13 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 18:20:26 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/12 10:04:53 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/12 17:07:49 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
-# include <fcntl.h>
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>

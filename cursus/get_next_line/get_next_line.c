@@ -6,12 +6,11 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 18:21:35 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/12 13:23:15 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/05/12 14:01:10 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*read_and_keep(int fd, char *keep)
 {
@@ -86,7 +85,7 @@ char	*get_next_line(int fd)
 	static char	*keep;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
+		return (NULL);
 	keep = read_and_keep(fd, keep);
 	if (!keep)
 		return (NULL);

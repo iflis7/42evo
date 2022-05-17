@@ -1,7 +1,7 @@
-#include "utils.h"
 
+#include "utils.c"
 
-static void	send_signal(int pid, int c)
+void	send_signal(int pid, int c)
 {
 	int	j;
 	int	ret;

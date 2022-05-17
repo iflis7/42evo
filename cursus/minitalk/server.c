@@ -1,12 +1,22 @@
-#include "utils.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/16 15:55:15 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/05/17 11:43:00 by hsaadi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static void	signal_handler(int signal)
+#include "utils.c"
+
+void	handler(int signal)
 {
-	static int	len;
-	static char	c;
+	static int	len = 0;
+	static char	c = 0;
 
-	len = 0;
-	c = 0;
 	if (signal == SIGUSR1)
 		c |= (1 << len);
 	len++;
@@ -22,13 +32,17 @@ static void	signal_handler(int signal)
 
 int	main(void)
 {
-	int sign;
+	int					pid;
+	struct sigaction	act;
+	act.sa_handler = &handler;
+	act.sa_flags = 0;
+	act.sa_mask = 0;
 
-	sign = (int)getpid();
-	ft_putnbr_fd(sign, 1);
+	pid = (int)getpid();
+	ft_putnbr_fd(pid, 1);
 	write(1, "\n", 1);
-	signal(SIGUSR1, signal_handler);
-	signal(SIGUSR2, signal_handler);
+	sigaction(SIGUSR1, &act, NULL);
+	sigaction(SIGUSR2, &act, NULL);
 	while (1)
 		pause();
 	return (0);

@@ -1,7 +1,5 @@
 # 42evo
 
-![](https://github.com/iflis7/42evo/workflows/norminette/badge.svg)
-![](https://github.com/iflis7/42evo/workflows/build/badge.svg)
 ![](https://img.shields.io/tokei/lines/github/iflis7/42evo?style=plastic?color=blue)
 
 Author:  _Hafid_ _Saadi_ <br />
@@ -54,3 +52,5 @@ the lowest possible number of actions. To succeed you’ll have to manipulate va
 types of algorithms and choose the most appropriate solution (out of many) for an
 optimized data sorting
 
+## Fractol 
+This project is about creating graphically beautiful fractals (Version: 2)
