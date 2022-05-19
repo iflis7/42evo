@@ -31,8 +31,8 @@ all:	$(NAME)
 # client: client.o 
 # 	$(CC) -o $@ $< 
 
-bonus:		$(OBJS) $(BONUS_OBJS)
-			$(NAME) $(OBJ) $(BONUS_OBJS)
+# bonus:		$(OBJS) $(BONUS_OBJS)
+# 			$(NAME) $(OBJ) $(BONUS_OBJS)
 
 # %.o: %.c
 # 			${CC} ${CFLAGS} -I ${HDRS} -c $< -o $@

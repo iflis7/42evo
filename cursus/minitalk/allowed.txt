@@ -1,3 +1,4 @@
+*** Functions allowed ***
 
 ◦ write
 ◦ ft_printf and any equivalent YOU coded ◦ signal
