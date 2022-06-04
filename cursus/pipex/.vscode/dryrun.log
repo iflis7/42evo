@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/hsaadi/Desktop/42evo/Cursus/pipex'
+gcc -Wall -Werror -Wextra     pipex.c   -o pipex
+make: Leaving directory `/Users/hsaadi/Desktop/42evo/Cursus/pipex'
+ 

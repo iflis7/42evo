@@ -1,0 +1,16 @@
+total 160
+-rw-r--r--   1 hsaadi  2022_quebec    466  2 jui 20:43 Makefile
+-rw-r--r--   1 hsaadi  2022_quebec      0  3 jui 09:58 cat.txt
+-rw-r--r--   1 hsaadi  2022_quebec    783  2 jui 21:46 check_args.c
+drwxr-xr-x   2 hsaadi  2022_quebec     68  2 jui 20:41 include
+drwxr-xr-x  93 hsaadi  2022_quebec   3162  2 jui 20:35 libft
+-rw-r--r--   1 hsaadi  2022_quebec      0  3 jui 09:53 ls
+-rwx------   1 hsaadi  2022_quebec    417  3 jui 09:29 notes.txt
+-rw-r--r--   1 hsaadi  2022_quebec      0  3 jui 09:53 out.txt
+-rwxr-xr-x   1 hsaadi  2022_quebec  50864  3 jui 09:58 pipex
+-rw-r--r--   1 hsaadi  2022_quebec   2360  3 jui 09:57 pipex.c
+-rw-r--r--   1 hsaadi  2022_quebec    659  2 jui 20:45 pipex.h
+drwxr-xr-x   2 hsaadi  2022_quebec     68  2 jui 20:41 src
+-rw-r--r--   1 hsaadi  2022_quebec    673  2 jui 17:04 utils.c
+-rw-r--r--   1 hsaadi  2022_quebec      0  3 jui 09:57 wc
+-rw-r--r--   1 hsaadi  2022_quebec    100  3 jui 09:57 wcà
