@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:36:44 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/07 19:36:44 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/07 20:31:57 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	main(int argc, char **argv, char **envp)
 	int	fd;
 
 	if (argc <= 4 || !envp)
-		msg_error("GTFO!! proram needs at least 4 args");
+		msg_error("Proram needs at least 4 args!!");
 	if (file_is_ok(argv[1]) == -1)
 		return (-1);
 	fd = open(argv[argc - 1], O_CREAT | O_RDWR | O_TRUNC, 0644);

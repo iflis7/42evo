@@ -6,21 +6,11 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 18:40:21 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/07 19:37:02 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/07 20:31:14 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
-
-void	fru(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
-}
 
 /* returns (0) if the file exists and the user have the 
 permissions needed (Read) and (-1) otherwise */
@@ -47,12 +37,15 @@ char	*get_cmd(char *paths, char **envp)
 	opt = ft_split(paths, ' ');
 	if (access(*opt, (R_OK, X_OK)) == 0)
 		return (*opt);
-	ret = get_path_lines(envp, *opt);
+	cmd = ft_strjoin("/", *opt);
+	ret = get_path_lines(envp, cmd);
 	if (access(ret, (R_OK, X_OK)) == 0)
 	{
+		free(cmd);
 		fru(opt);
 		return (ret);
 	}
+	free(cmd);
 	free(ret);
 	fru(opt);
 	return (NULL);
@@ -60,30 +53,24 @@ char	*get_cmd(char *paths, char **envp)
 
 char	*get_path_lines(char **envp, char *cmd)
 {
-	char	*res;
 	char	**concats;
 	char	*temp;
 
-	cmd = ft_strjoin("/", cmd);
 	while (*envp++)
 	{
-		res = ft_strnstr(*envp, "PATH=", ft_strlen(*envp));
-		if (res)
+		if (ft_strnstr(*envp, "PATH=", ft_strlen(*envp))) // FIXME add strcmp
 		{
-			concats = ft_split(res, ':');
+			concats = ft_split(ft_strnstr(*envp, "PATH=", ft_strlen(*envp)), \
+			':');
 			while (*concats++)
 			{
 				temp = ft_strjoin(*concats, cmd);
 				free(*concats);
 				if (access(temp, (R_OK, X_OK)) == 0)
-				{
-					free(cmd);
 					return (temp);
-				}
 				free(temp);
 			}
 		}
 	}
-	free(cmd);
 	return (NULL);
 }
