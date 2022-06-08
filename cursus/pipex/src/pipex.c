@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:36:44 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/08 08:01:10 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/08 12:31:45 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	child_process2(int file, char **argv, int *pfd, char **envp)
 	close(file);
 }
 
-void	pipex(char **argv, char **envp, int f2)
+void	pipex(char **argv, char **envp, int fd)
 {
 	int		pfd[2];
 	pid_t	child1;
@@ -74,11 +74,12 @@ void	pipex(char **argv, char **envp, int f2)
 	if (child2 < 0)
 		return (perror("Fork: "));
 	if (child2 == 0)
-		child_process2(f2, argv, pfd, envp);
+		child_process2(fd, argv, pfd, envp);
 	close(pfd[0]);
 	close(pfd[1]);
 	waitpid(child1, NULL, 0);
 	waitpid(child2, NULL, 0);
+	
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -91,5 +92,6 @@ int	main(int argc, char **argv, char **envp)
 		return (-1);
 	fd = open(argv[argc - 1], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	pipex(argv, envp, fd);
+	close(fd);
 	return (0);
 }
