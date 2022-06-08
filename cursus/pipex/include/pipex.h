@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:36:53 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/07 19:41:02 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/08 15:56:52 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	msg_error(char *error);
 
 void	fru(char **str);
 int		file_is_ok(char *path);
-char	*get_path_lines(char **envp, char *cmd);
 char	*get_cmd(char *paths, char **envp);
+char	*get_cmd_path(char **envp, char *cmd);
 
 #endif

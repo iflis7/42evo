@@ -45,7 +45,8 @@ YELLOW = \033[1;33m
 DEFAULT = \033[0m
 COMMIT = $(shell date "+%d %B %T")
 
-run: //FIXME delete before pushing :) 
+# //FIXME delete before pushing :) 
+run: 
 	@./pipex "notes.txt" "cat" "wc" out.txt
 
 runcmd:
