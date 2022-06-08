@@ -6,13 +6,13 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:35:17 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/01 13:10:42 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/07 19:38:31 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char  *s1, char  *set)
+char	*ft_strtrim(char *s1, char *set)
 {
 	char	*str;
 	size_t	start;

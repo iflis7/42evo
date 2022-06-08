@@ -13,21 +13,26 @@ SRCS = $(addprefix $(SRCS_PATH), $(SRCS_FILES))
 OBJS = $(SRCS:.c=.o)
 
 all: 	$(NAME)
-	@echo "BOOM 💥💥💥💥💥 $(NAME) Compiled! 💯💯 $(DEFAULT)"
+	@echo "BOOM 💥💥💥💥💥 $(NAME) Compiled! 💯 $(DEFAULT)"
+
+run:
+	@./pipex "notes.txt" "cat" "wc" out.txt
+
+runcmd:
+	@./pipex "notes.txt" "/bin/cat" "/usr/bin/wc" out.txt
 
 $(NAME): $(OBJS)
 	@$(MAKE) -C $(LIBFT_PATH)
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)
-	@echo -e "$(GREEN)$(NAME) created!$(DEFAULT)"
+	@echo "\n$(GREEN)$(NAME) created!$(DEFAULT)💯"
 
 clean:
 	@$(RM) 
 	make -C $(LIBFT_PATH) clean
-	@echo -e "$(YELLOW)object files deleted!$(DEFAULT)"
+	@echo "\n$(YELLOW)object files deleted!$(DEFAULT)💯"
 
 fclean:	clean
 	@$(RM) $(NAME) $(LIBFT)
-		
 
 re:		fclean all
 
@@ -36,7 +41,7 @@ re:		fclean all
 git:
 	@git add .
 	@git commit -m "$(COMMIT)"
-	@echo -e "$(GREEN)$(NAME) Committed!$(DEFAULT)"
+	@echo "\n$(GREEN)$(NAME) Committed!$(DEFAULT)💯"
 
 #COLORS
 RED = \033[1;31m

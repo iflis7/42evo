@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/07 19:36:53 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/06/07 19:41:02 by hsaadi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef PIPEX_H
+# define PIPEX_H
 
 # include "../include/libft/libft.h"
 
@@ -25,13 +36,12 @@
 # include <strings.h>
 # include <sys/wait.h>
 
-# define ERROR_FILE "File Not Existant! Please check the path of create the file! \n"
-
 void	message(char *error);
 void	msg_error(char *error);
 
 void	fru(char **str);
 int		file_is_ok(char *path);
-char	**get_env_path(char **paths, char *argv, char **envp);
+char	*get_path_lines(char **envp, char *cmd);
+char	*get_cmd(char *paths, char **envp);
 
 #endif

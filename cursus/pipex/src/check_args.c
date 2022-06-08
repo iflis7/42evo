@@ -1,16 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_args.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/07 18:40:21 by hsaadi            #+#    #+#             */
+/*   Updated: 2022/06/07 19:37:02 by hsaadi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/pipex.h"
-// #include "utils.c"
 
 void	fru(char **str)
 {
 	int	i;
+
 	i = 0;
-	while (str[i++])
-		free(str[i]);
+	while (str[i])
+		free(str[i++]);
+	free(str);
 }
 
-/* returns (0) if the file exists and the user have the permissions needed (Read) and (-1) otherwise */
-int	file_is_ok(char *path)  // FIXME show a message if file or not precise bordel!!
+/* returns (0) if the file exists and the user have the 
+permissions needed (Read) and (-1) otherwise */
+int	file_is_ok(char *path)
 {
 	if (access(path, F_OK) == -1)
 	{
@@ -25,38 +39,51 @@ int	file_is_ok(char *path)  // FIXME show a message if file or not precise borde
 	return (0);
 }
 
-char	**get_env_path(char **paths, char *argv, char **envp)
+char	*get_cmd(char *paths, char **envp)
 {
-	char	**mycmdargs;
-	char	*res;
-	char	**box;
+	char	**opt;
+	char	*ret;
 
-	mycmdargs = ft_split(argv, ' ');
-	while (*envp)
+	opt = ft_split(paths, ' ');
+	if (access(*opt, (R_OK, X_OK)) == 0)
+		return (*opt);
+	ret = get_path_lines(envp, *opt);
+	if (access(ret, (R_OK, X_OK)) == 0)
 	{
-		res = ft_strnstr(*envp++, "PATH=", 1000);
+		fru(opt);
+		return (ret);
+	}
+	free(ret);
+	fru(opt);
+	return (NULL);
+}
+
+char	*get_path_lines(char **envp, char *cmd)
+{
+	char	*res;
+	char	**concats;
+	char	*temp;
+
+	cmd = ft_strjoin("/", cmd);
+	while (*envp++)
+	{
+		res = ft_strnstr(*envp, "PATH=", ft_strlen(*envp));
 		if (res)
 		{
-			box = ft_split(res, ':');
-			while (*box++)
+			concats = ft_split(res, ':');
+			while (*concats++)
 			{
-				if (access(*box, F_OK) == 0)
+				temp = ft_strjoin(*concats, cmd);
+				free(*concats);
+				if (access(temp, (R_OK, X_OK)) == 0)
 				{
-					fru(box);
-					return (mycmdargs);
+					free(cmd);
+					return (temp);
 				}
-				else
-				{
-					*paths = ft_strjoin(ft_strjoin(*box, "/"), mycmdargs[0]);
-					if (access(*paths, F_OK) == 0)
-					{
-						fru(box);
-						return (mycmdargs);
-					}
-				}
+				free(temp);
 			}
 		}
 	}
-	free(mycmdargs);
+	free(cmd);
 	return (NULL);
 }

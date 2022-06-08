@@ -6,16 +6,16 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 18:30:47 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/01 13:10:42 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/07 19:39:24 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst,  void *src, size_t len)
+void	*ft_memmove(void *dst, void *src, size_t len)
 {
-	unsigned char		*dest;
-	 unsigned char	*srcs;
+	unsigned char	*dest;
+	unsigned char	*srcs;
 
 	if (!dst && !src)
 		return (NULL);

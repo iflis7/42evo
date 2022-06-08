@@ -8,6 +8,7 @@
         "chrono": "c",
         "unordered_map": "c",
         "string.h": "c",
-        "minitalk.h": "c"
+        "minitalk.h": "c",
+        "get_next_line.h": "c"
     }
 }
