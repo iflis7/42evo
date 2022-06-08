@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:36:44 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/07 20:31:57 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/08 08:01:10 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	child_process1(char **argv, int *pfd, char **envp)
 		msg_error("Child process 1 -*- Command execution failed!");
 		exit(EXIT_FAILURE);
 	}
+	free(cmd);
 	fru(concats);
 	close(pfd[1]);
 	close(fd1);

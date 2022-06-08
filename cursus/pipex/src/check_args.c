@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 18:40:21 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/07 20:31:14 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/08 08:42:09 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*get_cmd(char *paths, char **envp)
 {
 	char	**opt;
 	char	*ret;
+	char	*cmd;
 
 	opt = ft_split(paths, ' ');
 	if (access(*opt, (R_OK, X_OK)) == 0)
@@ -53,19 +54,18 @@ char	*get_cmd(char *paths, char **envp)
 
 char	*get_path_lines(char **envp, char *cmd)
 {
-	char	**concats;
+	char	**conc;
 	char	*temp;
 
 	while (*envp++)
 	{
 		if (ft_strnstr(*envp, "PATH=", ft_strlen(*envp))) // FIXME add strcmp
 		{
-			concats = ft_split(ft_strnstr(*envp, "PATH=", ft_strlen(*envp)), \
-			':');
-			while (*concats++)
+			conc = ft_split(ft_strnstr(*envp, "PATH=", ft_strlen(*envp)), ':');
+			while (*conc++)
 			{
-				temp = ft_strjoin(*concats, cmd);
-				free(*concats);
+				temp = ft_strjoin(*conc, cmd);
+				free(*conc);
 				if (access(temp, (R_OK, X_OK)) == 0)
 					return (temp);
 				free(temp);

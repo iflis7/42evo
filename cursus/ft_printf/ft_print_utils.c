@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 07:49:40 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/05/20 14:55:25 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/08 08:39:41 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	ft_putnbr(int nb, int *len)
 	if (nb < 0)
 	{
 		*len += write(1, "-", 1);
-		 
 	}
 	if (nb >= 10)
 		ft_putnbr(nb / 10, len);

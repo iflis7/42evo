@@ -15,11 +15,6 @@ OBJS = $(SRCS:.c=.o)
 all: 	$(NAME)
 	@echo "BOOM 💥💥💥💥💥 $(NAME) Compiled! 💯 $(DEFAULT)"
 
-run:
-	@./pipex "notes.txt" "cat" "wc" out.txt
-
-runcmd:
-	@./pipex "notes.txt" "/bin/cat" "/usr/bin/wc" out.txt
 
 $(NAME): $(OBJS)
 	@$(MAKE) -C $(LIBFT_PATH)
@@ -49,3 +44,9 @@ GREEN = \033[1;32m
 YELLOW = \033[1;33m
 DEFAULT = \033[0m
 COMMIT = $(shell date "+%d %B %T")
+
+run: //FIXME delete before pushing :) 
+	@./pipex "notes.txt" "cat" "wc" out.txt
+
+runcmd:
+	@./pipex "notes.txt" "/bin/cat" "/usr/bin/wc" out.txt
