@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/hsaadi/Desktop/42evo/Cursus/push_swap'
+echo "BOOM 💥💥💥💥💥 push_swap Compiled! 💯 \033[0m"
+ 
+make: Leaving directory `/Users/hsaadi/Desktop/42evo/Cursus/push_swap'
+ 
