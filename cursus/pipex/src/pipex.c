@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:36:44 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/08 19:40:09 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/09 21:29:22 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,14 @@ void	child_process1(char **argv, int *pfd, char **envp)
 
 	fd1 = open(argv[1], O_RDONLY, 0644);
 	if (fd1 == -1)
-		msg_error("File couldn't be opened in child process 1");
+		msg_exit("Infile couldn't be opened!\nPlease check the pathname!");
 	dup2(pfd[1], STDOUT_FILENO);
 	dup2(fd1, STDIN_FILENO);
 	close(pfd[0]);
 	cmd = get_cmd(argv[2], envp);
 	concats = ft_split(argv[2], ' ');
 	if (execve(cmd, concats, envp) == -1)
-	{
-		msg_error("Child process 1 -*- Command execution failed!");
-		exit(EXIT_FAILURE);
-	}
+		msg_exit("Command execution failed!\nError");
 	free(cmd);
 	fru(concats);
 	close(pfd[1]);
@@ -47,12 +44,8 @@ void	child_process2(int file, char **argv, int *pfd, char **envp)
 	dup2(file, STDOUT_FILENO);
 	cmd = get_cmd(argv[3], envp);
 	concats = ft_split(argv[3], ' ');
-	printf("envp %s\n", envp[0]);
 	if (execve(cmd, concats, envp) == -1)
-	{
-		msg_error("Child process 2 -*- Command execution failed!");
-		exit(EXIT_FAILURE);
-	}
+		msg_exit("Command execution failed!\nError");
 	free(cmd);
 	fru(concats);
 	close(pfd[0]);
@@ -85,15 +78,18 @@ void	pipex(char **argv, char **envp, int fd)
 int	main(int argc, char **argv, char **envp)
 {
 	int	fd;
+	
+	if (argc < 5 || !envp)
+		msg_exit("Program needs at least 5 args! Just like this: \ninfile ls wc outfile");
 
-	if (argc <= 4 || !envp)
-		msg_error("Program needs at least 4 args!!");
-	if (file_is_ok(argv[1]) == -1)
-		return (-1);
+	// char *cmd = get_cmd(argv[2], envp);
+	// printf("cmd: %s\n", cmd);
+	
 	fd = open(argv[argc - 1], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (fd == -1)
-		msg_error("File coudln't be created! Yeah well ");
+		msg_exit("Outfile couldn't be opened!");
 	pipex(argv, envp, fd);
 	close(fd);
+
 	return (0);
 }

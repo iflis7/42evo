@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 18:40:21 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/08 19:40:39 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/09 20:55:04 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ permissions needed (Read) and (-1) otherwise */
 int	file_is_ok(char *path)
 {
 	if (access(path, (F_OK, R_OK)) == -1)
-		msg_error("Error Description");
+		msg_error("infile inexistant or bad pathname!\nError");
 	return (0);
 }
 
@@ -28,10 +28,11 @@ char	*get_cmd(char *paths, char **envp)
 	char	*cmd;
 
 	opt = ft_split(paths, ' ');
+	printf("opt: %s\n", *opt);
 	if (access(*opt, (R_OK, X_OK)) == 0)
 		return (*opt);
 	cmd = ft_strjoin("/", *opt);
-	ret = get_cmd_path(envp, cmd);
+	ret = get_cmd_path(envp, cmd);	
 	if (access(ret, (R_OK, X_OK)) == 0)
 	{
 		free(cmd);
@@ -41,7 +42,7 @@ char	*get_cmd(char *paths, char **envp)
 	free(cmd);
 	free(ret);
 	fru(opt);
-	msg_error("command not found");
+	
 	return (NULL);
 }
 
@@ -50,13 +51,15 @@ char	*get_cmd_path(char **envp, char *cmd)
 	char	**conc;
 	char	*temp;
 
+
 	while (*envp++)
 	{
 		if (ft_strnstr(*envp, "PATH=", ft_strlen(*envp)))
 		{
 			conc = ft_split(ft_strnstr(*envp, "PATH=", ft_strlen(*envp)), ':');
-			while (*conc++)
+			while (*conc && *conc++)
 			{
+				printf("Brain Fuck!! %s\n", *conc);	
 				temp = ft_strjoin(*conc, cmd);
 				free(*conc);
 				if (access(temp, (R_OK, X_OK)) == 0)
@@ -65,6 +68,6 @@ char	*get_cmd_path(char **envp, char *cmd)
 			}
 		}
 	}
-	msg_error("command not found");
+	
 	return (NULL);
 }

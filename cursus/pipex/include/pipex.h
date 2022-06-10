@@ -6,7 +6,7 @@
 /*   By: hsaadi <hsaadi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:36:53 by hsaadi            #+#    #+#             */
-/*   Updated: 2022/06/08 15:56:52 by hsaadi           ###   ########.fr       */
+/*   Updated: 2022/06/09 17:16:06 by hsaadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # include <sys/wait.h>
 
 void	message(char *error);
+void	msg_exit(char *error);
 void	msg_error(char *error);
 
 void	fru(char **str);
