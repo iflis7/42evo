@@ -15,4 +15,4 @@ $> ./pipex file1 cmd1 cmd2 file2
 ```
 All errors like: wrong commands,  permission to files and etc, need be handle.
 ### Testers
-Markup :  [Pipex Tester](https://github.com/vfurmane/pipex-tester "Pipex tester")
+1) [Pipex Tester](https://github.com/vfurmane/pipex-tester "Pipex tester")
