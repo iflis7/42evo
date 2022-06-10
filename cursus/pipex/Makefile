@@ -8,7 +8,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
 RM = rm -f
 
-SRCS_FILES = pipex.c utils.c check_args.c
+SRCS_FILES = main.c pipex.c utils.c check_args.c
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_FILES))
 OBJS = $(SRCS:.c=.o)
 
@@ -19,12 +19,12 @@ all: 	$(NAME)
 $(NAME): $(OBJS)
 	-@$(MAKE) -C $(LIBFT_PATH)
 	-@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)
-	@echo "\n$(GREEN)$(NAME) created!$(DEFAULT)💯"
+	@echo "$(GREEN)$(NAME) created!$(DEFAULT)"
 
 clean:
 	@$(RM) $(OBJS)
 	@make -C $(LIBFT_PATH) clean
-	@echo "\n$(YELLOW)object files deleted!$(DEFAULT)💯"
+	@echo "$(YELLOW)Object files deleted!$(DEFAULT)💯"
 
 fclean:	clean
 	@$(RM) $(NAME) $(LIBFT)
